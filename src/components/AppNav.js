@@ -34,15 +34,6 @@ class AppNav extends Component {
                 <div
                   style={{
                     display: "block",
-                    padding: "0.5rem 1rem 0.5rem 0",
-                    color: "white"
-                  }}
-                >
-                  Hello, {users[authedUser].name}
-                </div>
-                <div
-                  style={{
-                    display: "block",
                     padding: "0.3rem 0",
                     color: "white"
                   }}
@@ -58,6 +49,15 @@ class AppNav extends Component {
                     src={users[authedUser].avatarURL}
                     alt="avatar"
                   />
+                </div>
+                <div
+                  style={{
+                    display: "block",
+                    padding: "0.5rem 1rem 0.5rem 0",
+                    color: "white"
+                  }}
+                >
+                  {users[authedUser].name}
                 </div>
                 <LinkContainer to="/">
                   <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>

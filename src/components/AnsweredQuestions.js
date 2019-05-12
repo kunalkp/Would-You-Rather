@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 function AnsweredQuestions(props) {
   const { questions, users, authedUser } = props;
   const { answers } = users[authedUser];
-
   return (
     <div style={{ padding: 10, border: "1px solid #d8d8d8" }}>
       {Object.values(questions)

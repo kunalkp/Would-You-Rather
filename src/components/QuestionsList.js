@@ -3,11 +3,13 @@ import { Card, Button, ListGroup, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function QuestionsList(props) {
-  const { questions, users } = props;
+  const { questions, users, authedUser } = props;
+  const answersId = Object.keys(users[authedUser].answers);
   return (
     <div style={{ padding: 10, border: "1px solid #d8d8d8" }}>
       {Object.values(questions)
         .sort((a, b) => b.timestamp - a.timestamp)
+        .filter(ques => !answersId.includes(ques.id))
         .map(ques => (
           <Card key={ques.id} className="mt-3">
             <Card.Header>{users[ques.author].name} asks:</Card.Header>

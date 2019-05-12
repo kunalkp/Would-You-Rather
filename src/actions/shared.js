@@ -40,7 +40,7 @@ export function handleAddAnswer(qid, answer) {
   };
 }
 
-export function handleAddQuestion(optionOneText, optionTwoText, cb) {
+export function handleAddQuestion(optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
     return saveQuestion({
@@ -55,7 +55,6 @@ export function handleAddQuestion(optionOneText, optionTwoText, cb) {
         })
       );
       dispatch(addQuestion(question));
-      cb();
     });
   };
 }

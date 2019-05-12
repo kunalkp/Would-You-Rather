@@ -14,20 +14,15 @@ class NewQuestion extends Component {
 
     const optionOneText = e.target.optionOneText.value;
     const optionTwoText = e.target.optionTwoText.value;
-    const { dispatch } = this.props;
+    const { addQuestion } = this.props;
 
     if (!optionOneText || !optionTwoText) {
       alert("There was an error. Try again.");
       return;
     }
 
-    dispatch(
-      handleAddQuestion(optionOneText, optionTwoText, () => {
-        this.setState({
-          redirect: true
-        });
-      })
-    );
+    addQuestion(optionOneText, optionTwoText);
+    this.setState({ redirect: true });
   };
 
   render() {
@@ -99,4 +94,13 @@ function mapStateToProps({ questions }) {
     questions
   };
 }
-export default connect(mapStateToProps)(NewQuestion);
+
+const mapDispatchToProps = dispatch => ({
+  addQuestion: (optionOneText, optionTwoText) =>
+    dispatch(handleAddQuestion(optionOneText, optionTwoText))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewQuestion);

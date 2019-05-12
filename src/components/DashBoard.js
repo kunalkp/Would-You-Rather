@@ -13,7 +13,11 @@ class DashBoard extends Component {
           <Col md={{ span: 8, offset: 2 }}>
             <Tabs defaultActiveKey="unanswered">
               <Tab eventKey="unanswered" title="Unanswered Questions">
-                <QuestionsList questions={questions} users={users} />
+                <QuestionsList
+                  questions={questions}
+                  users={users}
+                  authedUser={authedUser}
+                />
               </Tab>
               <Tab eventKey="answered" title="Answered Questions">
                 <AnsweredQuestions
